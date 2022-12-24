@@ -6,6 +6,9 @@ export const Tabs = defineComponent({
             type: String as PropType<string>,
             required:false
         },
+        onClick:{
+            type: Function as PropType<(e:MouseEvent) => void>
+        },
     },
     emits:['update:selected'],
     setup(props, context) {
@@ -19,7 +22,7 @@ export const Tabs = defineComponent({
                     throw new Error('<Tabs> only accepts <Tabs> as children')
                 }
             }
-            return <div class={s.tabs}>
+            return <div class={s.tabs} onClick={props.onClick}>
                 <ol class={s.tabs_nav}>
                     {array.map(item =>
                         <li class={item.props?.name === props.selected ? s.selected : ''}
