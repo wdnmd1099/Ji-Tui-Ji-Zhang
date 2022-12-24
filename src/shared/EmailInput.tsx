@@ -71,17 +71,17 @@ export const EmailInput = defineComponent({
                         refChangeVerificationCode.value = false
                     }
                 }, 1000)
-                const response = await axios.post('/api/v1/validation_codes', { email: formData.email }) //发送验证码
-                    .catch((e) => {
-                        responseErr.map(item => {
-                            if (e.response.status === item.errNumber) {
-                                Object.assign(errors, { email: [item.message], code: [] }) // 发送验证码错误提示
-                                count.value = 3 //如果服务器返回错误验证码，重置计时器
-                            }
-                        })
-                    })
+                // const response = await axios.post('/api/v1/validation_codes', { email: formData.email }) //发送验证码
+                //     .catch((e) => {
+                //         responseErr.map(item => {
+                //             if (e.response.status === item.errNumber) {
+                //                 Object.assign(errors, { email: [item.message], code: [] }) // 发送验证码错误提示
+                //                 count.value = 3 //如果服务器返回错误验证码，重置计时器
+                //             }
+                //         })
+                //     })
             } else {
-                Object.assign(errors, { email: ['发送失败，请检查邮箱地址是否正确'], code: [] })
+                // Object.assign(errors, { email: ['发送失败，请检查邮箱地址是否正确'], code: [] })
             }
 
 

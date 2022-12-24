@@ -100,6 +100,7 @@ export class Time {
 
 export const time = reactive([
   {
+    // startDay:{YYYY:0, MM:0, DD:0},
     startDay: new Time().firstDayOfMonth().format(),  //本月
     endDay: new Time().lastDayOfMonth().format()
   },
